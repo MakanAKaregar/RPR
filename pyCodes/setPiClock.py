@@ -5,57 +5,53 @@
 import pynmea2
 import io
 import serial
-import time
 import pytz
 import logging
+from timezonefinder import TimezoneFinder
+import time
 import sys
 import os
-from timezonefinder import TimezoneFinder
 
 logger = logging.getLogger()
 logger.addHandler(logging.StreamHandler(sys.stdout))
 logger.setLevel(logging.DEBUG)
 
-ser = serial.Serial(
-    port = '/dev/ttyACM0',
-    baudrate = 9600,
-    parity = serial.PARITY_NONE,
-    stopbits = serial.STOPBITS_ONE,
-    bytesize = serial.EIGHTBITS,
-    timeout = 1
-)
-sio = io.TextIOWrapper(io.BufferedRWPair(ser, ser))
+serial_port = '/dev/ttyACM0';# port for Adafruit Feather 32U4 board
+baud_rate = 9600; # in your IDE code, that is Serial.begin(baud_rate)
+
+ser_ls = serial.Serial(port = serial_port, baudrate = baud_rate, parity = serial.PARITY_NONE, stopbits = serial.STOPBITS_ONE, bytesize = serial.EIGHTBITS, timeout = 1) #listen to serial port 
+
+sio = io.TextIOWrapper(io.BufferedRWPair(ser_ls, ser_ls))#buffered text stream
 
 while True:
     try:
-        line = sio.readline()
-        msg = pynmea2.parse(line)
+        ln = sio.readline() #read a (nmea) line from serial port
+        NMEA = pynmea2.parse(ln)#parse nmea line
 
-        if type(msg) == pynmea2.types.talker.RMC:
+        if type(NMEA) == pynmea2.types.talker.RMC:
 
-            status = msg.status
+            status = NMEA.status
 
             if status == 'A':
                 logger.debug('Got Fix')
 
-                zeit = msg.datetime
+                t = NMEA.datetime #date and time
 
-                latitude = msg.latitude
-                longitude = msg.longitude
+                latitude = NMEA.latitude #lat of GPS rcvr
+                longitude = NMEA.longitude #long of GPS rcvr
 
-                tf = TimezoneFinder()
-                zeitzone_string = tf.timezone_at(lng=longitude, lat=latitude)
+                tzf = TimezoneFinder()
+                tZone_string = tzf.timezone_at(lng=longitude, lat=latitude)#find time zone for your GPS
 
-                logger.debug('Set timezone to %s', zeitzone_string)
-                os.system(f"timedatectl set-timezone {zeitzone_string}")
+                logger.debug('set timezone to %s', tZone_string)
+                os.system(f"timedatectl set-timezone {Zone_string }")
 
-                zeitzone = pytz.timezone(zeitzone_string)
-                zeit_mit_zeitzone = zeit.replace(tzinfo=pytz.utc).astimezone(zeitzone)
-                unix_zeit = time.mktime(zeit_mit_zeitzone.timetuple())
+                tZone = pytz.timezone(Zone_string)
+                t_tZone = t.replace(tzinfo=pytz.utc).astimezone(tZone)
 
-                logger.debug('Set time to %s', zeit_mit_zeitzone)
+                logger.debug('Set time to %s', t_tZone)
                 clk_id = time.CLOCK_REALTIME
-                time.clock_settime(clk_id, float(unix_zeit))
+                time.clock_settime(clk_id, float(time.mktime(t_tZone.timetuple())))
 
                 break
 
