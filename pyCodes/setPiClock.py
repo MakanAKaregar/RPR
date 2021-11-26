@@ -44,9 +44,9 @@ while True:
                 tZone_string = tzf.timezone_at(lng=longitude, lat=latitude)#find time zone for your GPS
 
                 logger.debug('set timezone to %s', tZone_string)
-                os.system(f"timedatectl set-timezone {Zone_string }")
+                os.system(f"timedatectl set-timezone {tZone_string }")
 
-                tZone = pytz.timezone(Zone_string)
+                tZone = pytz.timezone(tZone_string)
                 t_tZone = t.replace(tzinfo=pytz.utc).astimezone(tZone)
 
                 logger.debug('Set time to %s', t_tZone)
