@@ -5,7 +5,7 @@
 import serial# don't forget to install the serial package
 import datetime
 
-file_path="/home/pi/Desktop/data/" # path for saving daily GPS SNR data
+file_path="/home/pi/RPR/data/" # path for saving daily GPS SNR data
 
 date_now=str(datetime.datetime.now());# current date and time
 
