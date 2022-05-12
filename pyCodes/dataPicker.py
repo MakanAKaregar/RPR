@@ -10,7 +10,7 @@ file_path="/home/pi/RPR/data/" # path for saving daily GPS SNR data
 date_now=str(datetime.datetime.now());# current date and time
 
 filename=(date_now[2:4]+date_now[5:7]+date_now[8:10]+'.log');# filename is set at the daily basis
-output_file = open(file_path+filename,"w+");#open output file
+output_file = open(file_path+filename,"a");#open output file
 
 serial_port = '/dev/ttyACM0';# port for Adafruit Feather 32U4 board
 baud_rate = 9600; # in your IDE code, that is Serial.begin(baud_rate)
@@ -24,7 +24,7 @@ while True:
 
     if len(ln)==12 and ln[0:10]!=filename:#check if the first line is "filename.log" and differs to what you defined previously (line 11)
         filename=ln[0:10];#replace filename if differs from the one defined  
-        output_file = open(file_path+filename,"w+");
+        output_file = open(file_path+filename,"a");
         print(ln);
         output_file.write(ln);
     else:
