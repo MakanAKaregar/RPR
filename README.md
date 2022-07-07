@@ -316,7 +316,7 @@ You can quit the prompt by entering:
 
 <code>sudo chmod 750 /var/www/nextcloud/data</code>
 
-3.14 Configure apache web server for nextCloud by making an empty single file called nextcloud.conf.
+3.14 Configure apache web server for nextCloud by making an empty single file called <code> nextcloud.conf</code> .
   
 <code>sudo nano /etc/apache2/sites-available/nextcloud.conf</code>
   
@@ -325,16 +325,21 @@ and then put the following in your <code>nextcloud.conf</code>
 <code>Alias /nextcloud "/var/www/nextcloud/"</code> 
 
 <code><Directory /var/www/nextcloud/></code>
+
   <code>Require all granted</code>
+  
   <code>AllowOverride All</code>
+  
   <code>Options FollowSymLinks MultiViews</code>
 
   <code><IfModule mod_dav.c></code>
+ 
     <code>Dav off</code>
+ 
  <code> </IfModule></code>
 
 <code></Directory></code>
-  
+
 3.15 Now enable <code>apache</code>’s configuration for nextCloud.
 
 <code>sudo a2ensite nextcloud.conf</code>
