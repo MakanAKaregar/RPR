@@ -322,7 +322,7 @@ You can quit the prompt by entering:
   
 and then put the following in your <code>nextcloud.conf</code> 
   
-<code>Alias /nextcloud "/var/www/nextcloud/"
+<code>Alias /nextcloud "/var/www/nextcloud/"</code> 
 
 <code><Directory /var/www/nextcloud/></code>
   <code>Require all granted</code>
