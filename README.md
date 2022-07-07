@@ -238,11 +238,11 @@ We have tested a RPR unit based on RPi 3B+ for two months in Bonn (Germany) foll
 
 # 3. Installing nextCloud on the RPR <a name="Installing nextCloud on the RPR"></a> 
 
-When streaming of NMEA data is preferred for real-time applications (Option II in Figure 2), the nextCloud and other client-server software can be installed on the RPR. We keep updates of following guide in https://github.com/MakanAKaregar/RPR.
+When streaming of NMEA data is preferred for real-time applications, the nextCloud and other client-server software can be installed on the RPR. We keep updates of following guide in https://github.com/MakanAKaregar/RPR.
 
 #### A) Install nextCloud server:
 
-3.1 Update your package repositories and install apache web server software.
+3.1 Update your package repositories and install <code>apache</code> web server software.
 
 <code>sudo apt update</code>
 
@@ -252,21 +252,21 @@ When streaming of NMEA data is preferred for real-time applications (Option II i
 
 To make sure apache is working on the RPR, open a web browser and enter your RPR’s IP to the URL bar.
 
-3.2 Install php server scripting language and relevant packages.
+3.2 Install <code>php</code> server scripting language and relevant packages.
 
 <code>sudo apt install php8.0 php8.0-gd php8.0-sqlite3 php8.0-curl php8.0-zip php8.0-xml php8.0-mbstring php8.0-mysql php8.0-bz2 php8.0-intl php-smbclient php8.0-imap php8.0-gmp libapache2-mod-php8.0</code>
 
-3.3 Make sure mysql-common  and  mariadb-server databases are already installed, if not do it so.
+3.3 Make sure <code>mysql-common</code>  and  <code>mariadb-server</code> databases are already installed, if not do it so.
   
 <code>sudo apt install mysql-common </code>
   
 <code>sudo apt install mariadb-server</code>
 
-3.4 Restart apache.
+3.4 Restart <code>apache</code>.
   
 <code>sudo service apache2 restart</code>
 
-3.5 Open mysql command-line client by assigning a password.
+3.5 Open <code>mysql</code> command-line client by assigning a password.
   
 <code>sudo mysql -u root -p</code>
 
@@ -278,13 +278,13 @@ To make sure apache is working on the RPR, open a web browser and enter your RPR
   
 If nextclouddb database already exists, use <code>CREATE DROP nextclouddb;</code> to delete it.
 
-3.7 Create a user for the database. nextCloud uses this user to authenticate a connection with mysql.
+3.7 Create a user for the database. nextCloud uses this user to authenticate a connection with <code>mysql</code>.
 
 <code>CREATE USER 'RPR'@'localhost' IDENTIFIED BY 'password';</code> 
 
 Here we choose an arbitrary user called RPR and a password. If the user already exists, use <code>DROP USER 'RPR'@'localhost';</code> to delete it.
 
-3.8 Grant permission of created database to the user database, then activate the granted permission for the user by flushing the privilege, and exit from mysql command-line client.
+3.8 Grant permission of created database to the user database, then activate the granted permission for the user by flushing the privilege, and exit from <code>mysql</code> command-line client.
 
 <code>GRANT ALL PRIVILEGES ON nextclouddb.* TO 'RPR'@'localhost';</code>
   
@@ -314,7 +314,7 @@ You can quit the prompt by entering:
 
 <code>sudo chown -R www-data:www-data /var/www/nextcloud/</code>
 
- <code>sudo chmod 750 /var/www/nextcloud/data</code>
+<code>sudo chmod 750 /var/www/nextcloud/data</code>
 
 3.14 Configure apache web server for nextCloud by making an empty single file called nextcloud.conf.
   
@@ -324,26 +324,26 @@ and then put the following in your <code>nextcloud.conf</code>
   
 <code>Alias /nextcloud "/var/www/nextcloud/"
 
-<Directory /var/www/nextcloud/>
-  Require all granted
-  AllowOverride All
-  Options FollowSymLinks MultiViews
+<code><Directory /var/www/nextcloud/></code>
+  <code>Require all granted</code>
+  <code>AllowOverride All</code>
+  <code>Options FollowSymLinks MultiViews</code>
 
-  <IfModule mod_dav.c>
-    Dav off
-  </IfModule>
+  <code><IfModule mod_dav.c></code>
+    <code>Dav off</code>
+ <code> </IfModule></code>
 
-</Directory></code>
+<code></Directory></code>
   
-3.15 Now enable apache’s configuration for nextCloud.
+3.15 Now enable <code>apache</code>’s configuration for nextCloud.
 
 <code>sudo a2ensite nextcloud.conf</code>
   
-3.16 Restart apache web server by using systemctl command to read updated configuration file.
+3.16 Restart <code>apache</code> web server by using <code>systemctl</code> command to read updated configuration file.
 
 <code>sudo systemctl reload apache2</code>
 
-3.17 Modify php configuration file php.ini in order to increase the file upload size. By default, php file upload size is set to maximum 2 MB file on the server. Open php configuration file using nano.
+3.17 Modify <code>php</code> configuration file <code>php.ini</code> in order to increase the file upload size. By default, <code>php</code> file upload size is set to maximum 2 MB file on the server. Open <code>php</code> configuration file using nano.
 
 <code>sudo nano /etc/php/8.0/apache2/php.ini</code>
 
@@ -365,13 +365,13 @@ Since there is no (free) certificate available from an external certification au
 
 <code>sudo openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout /etc/apache2/ssl/apache.key -out /etc/apache2/ssl/apache.crt</code>
 
-Here we can specify how long the SSL certificate remains valid by changing the default 365 days (-days 365) to an arbitrary number of days.
+Here we can specify how long the SSL certificate remains valid by changing the default 365 days (<code>-days 365</code>) to an arbitrary number of days.
 
 Now enable apache module mod_ssl that provides support for SSL encryption.
 
 <code>sudo a2enmod ssl</code>
 
-3.19 Set up the new certificate by modifying the SSL configuration file default-ssl.conf: 
+3.19 Set up the new certificate by modifying the SSL configuration file <code>default-ssl.conf</code>: 
 
 <code>sudo nano /etc/apache2/sites-available/default-ssl.conf</code>
 
@@ -383,13 +383,14 @@ Change value of <code>SSLCertificateKeyFile</code> variable to <code>/etc/apache
 
 and save the modified <code>default-ssl.conf</code> file.
 
-3.20 Again enable apache’s configuration for new changes made and restart it.
+3.20 Again enable <code>apache</code>’s configuration for new changes made and restart it.
   
 <code>sudo a2ensite default-ssl.conf</code>
 
 <code>sudo service apache2 restart</code>
 
-3.21 To redirect the HTTP requests to HTTPS and enforce SSL usage on nextCloud (via HTTPS), open 000-default.conf file.
+3.21 To redirect the HTTP requests to HTTPS and enforce SSL usage on nextCloud (via HTTPS), open <code>000-default.conf</code> file.
+
 sudo nano /etc/apache2/sites-available/000-default.conf
 
 and add the following lines:
@@ -402,7 +403,7 @@ and add the following lines:
   
 and save the modified the <code>000-default.conf</code> file.
 
-3.22 Enable apache’s rewrite module mod_rewrite to invoke rewrite rules using:
+3.22 Enable apache’s rewrite module <code>mod_rewrite</code> to invoke rewrite rules using:
   
 <code>sudo a2enmod rewrite</code>
   
@@ -429,13 +430,13 @@ Now the nextCloud server with its web interface is configured.
 
 #### B) Install nextCloud desktop client:
   
-The nextCloud desktop client provides the ability to place files in local directories, e.g., RPR’s daily NMEA data driectory (/home/pi/RPR/data), and synchronize them with the nextCloud server. The nextCloud desktop client nextcloud-desktop is not available yet (as of July 2022) in the RPi apt repository. However, it is available in the Debian repository http://ftp.debian.org/debian/.
+The nextCloud desktop client provides the ability to place files in local directories, e.g., RPR’s daily NMEA data driectory (<code>/home/pi/RPR/data</code>), and synchronize them with the nextCloud server. The nextCloud desktop client nextcloud-desktop is not available yet (as of July 2022) in the RPi apt repository. However, it is available in the Debian repository http://ftp.debian.org/debian/.
 
 Fetch a current archived key:
   
 <code>wget https://ftp-master.debian.org/keys/archive-key-11.asc</code>
   
-Use key management utility apt-key to add the downloaded key to the list of trusted keys.
+Use key management utility <code>apt-key</code> to add the downloaded key to the list of trusted keys.
   
 <code>sudo apt-key add archive-key-11.asc</code>
   
