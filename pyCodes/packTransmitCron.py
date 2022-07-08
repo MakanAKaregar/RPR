@@ -1,7 +1,7 @@
 #to compress daily NMEA data and possibly transmit through secure copy (scp) to a data server
 #useage example:
 #to be added to the crontab to pack and trasfer compressed daily data at 12:10 AM to a remote server
-#10 00 * * * /bin/python3.7 /home/pi/RPR/pyCodes/packTransmitClon.py
+#10 00 * * * /bin/python3.7 /home/pi/RPR/pyCodes/packTransmitCron.py
 
 import os
 import subprocess
