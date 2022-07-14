@@ -338,18 +338,18 @@ You can quit the prompt by entering:
   
 and then put the following in your <code>nextcloud.conf</code> 
   
-<code>Alias /nextcloud "/var/www/nextcloud/"</code>
-<code>                                   </code>
-<code><Directory /var/www/nextcloud/></code>
-..<code>Require all granted</code>
-  <code>AllowOverride All</code>
-  <code>Options FollowSymLinks MultiViews</code>
-<code>                                   </code>
-  <code><IfModule mod_dav.c></code>
-    <code>Dav off</code>
-  <code></IfModule></code>
-<code>                                   </code>
-<code></Directory></code>
+```Alias /nextcloud "/var/www/nextcloud/"
+
+<Directory /var/www/nextcloud/>
+  Require all granted
+  AllowOverride All
+  Options FollowSymLinks MultiViews
+
+  <IfModule mod_dav.c>
+    Dav off
+  </IfModule>
+
+</Directory>```
 
 3.15 Now enable <code>apache</code>’s configuration for nextCloud.
 
