@@ -337,7 +337,6 @@ You can quit the prompt by entering:
 <code>sudo nano /etc/apache2/sites-available/nextcloud.conf</code>
   
 and then put the following in your <code>nextcloud.conf</code> 
-  
 ```Alias /nextcloud "/var/www/nextcloud/"
 
 <Directory /var/www/nextcloud/>
@@ -351,7 +350,6 @@ and then put the following in your <code>nextcloud.conf</code>
 
 </Directory>
 ```
-
 3.15 Now enable <code>apache</code>’s configuration for nextCloud.
 
 <code>sudo a2ensite nextcloud.conf</code>
