@@ -342,12 +342,12 @@ and then put the following in your <code>nextcloud.conf</code>
 
 <code><Directory /var/www/nextcloud/></code>
   <code>Require all granted</code>
-  AllowOverride All
-  Options FollowSymLinks MultiViews
-
-  <IfModule mod_dav.c>
-    Dav off
-  </IfModule>
+  <code>AllowOverride All</code>
+  <code>Options FollowSymLinks MultiViews</code>
+<code>                                   </code>
+  <code><IfModule mod_dav.c></code>
+    <code>Dav off</code>
+  <code></IfModule></code>
 
 </Directory>
 
