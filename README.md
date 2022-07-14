@@ -8,9 +8,9 @@
 
 ## 1.1 Raspberry Pi operating system installation 
 
-   Raspberry Pi (RPi) does not have internal disk and built-in Operating System (OS). To set up RPi, an operating system needs to be installed onto a micro SD card. OS Image file is available at the official RPi website. The user needs to download and install Rapberry Pi Imager to a computer with a micro SD card reader. Installation instruction can be found here: https://www.raspberrypi.com/software/ 
+   Raspberry Pi (RPi) does not have internal disk and built-in Operating System (OS). To set up RPi, an operating system needs to be installed onto a micro SD card. OS Image file is available at the official RPi website. The user needs to download and install RPi Imager to a computer with a micro SD card reader. Installation instruction can be found here: https://www.raspberrypi.com/software/ 
 
-   After installing the OS onto the micro SD card, insert the card into the micro SD card slot of RPi. Peripheral devices such as monitor, keyboard and mouse are needed for initializing RPi. An HDMI/VGA monitor can be directly connected to RPi 3 using using a standar HDMI cable. For RPi 4, a micro HDMI to HDMI cable or a standard HDMI to HDMI cable along with a micro HDMI to HDMI adapter are needed. For a VGA monitor, use the HDMI to VGA adapter. Plug in monitor, USB keyboard and USB mouse to RPi.  Plug in micro USB (RPi 3) or USB-C (RPi 4) power supply and connect to power.
+   After installing the OS onto the micro SD card, insert the card into the micro SD card slot of RPi. Peripheral devices such as monitor, keyboard and mouse are needed for initializing RPi. An HDMI/VGA monitor can be directly connected to RPi 3 using using a standard HDMI cable. For RPi 4, a micro HDMI to HDMI cable or a standard HDMI to HDMI cable along with a micro HDMI to HDMI adapter are needed. For a VGA monitor, use the HDMI to VGA adapter. Plug in monitor, USB keyboard and USB mouse to RPi. Plug in micro USB (RPi 3) or USB-C (RPi 4) power supply and connect to power.
 
    Once the RPi boots, open RPi Configuration under Applications Menu > Preferences > R Pi Configuration. In the “Interfaces” tab, set SSH, VNC, Serial Port, Serial Console to enabled. Secure Shell (SSH) is a commonly used protocol for providing a secure channel between two computers. We can use SSH to connect from a Linux computer or from the Mac terminal to the RPi, without installing additional software. The Virtual Network Connection (VNC) server is enabled for viewing GUI desktop of RPi remotely via VNC viewer software installed on a server computer. The GPS module sends and receives NMEA data via the serial communication port to the RPi. 
 
@@ -158,7 +158,7 @@ You can select a text editor to make changes to the crontab file. Select your de
 
 Note that for RPi 3 B and B+ the python source code is at <code>/bin/python3.7</code> and for RPi 4 at <code>/usr/bin/python3.7</code>
 
-A simple code can be added to the time-based cron job scheduler for compressing daily NMEA files and transfer to a server. For example, the python code packTransmitClon.py will be run every day at 12:10 AM:
+A simple code can be added to the time-based cronjob scheduler for compressing daily NMEA files and transfer to a server. For example, the python code packTransmitClon.py will be run every day at 12:10 AM:
 
 <code>#to compress daily RPR files and transfer to a remote server at 12:10 AM</code>
 
@@ -167,7 +167,7 @@ A simple code can be added to the time-based cron job scheduler for compressing 
 
 Ensure that you included the correct file path in your crontab command. 
 
-1.8.4 Example of Cronjob schedules for a RPR powering with photovoltaic energy system.
+1.8.4 Example of cronjob schedules for a RPR powering with photovoltaic energy system.
 
 This setting uses a USB dongle for transmitting daily pack of NMEA data (not a real-time streaming).
 
@@ -203,7 +203,7 @@ This block initiates data collection 60 seconds after RPR boots and synchronizes
 
 <code>@reboot sleep 60 &&  sudo /bin/python3.7 /home/pi/RPR/pyCodes/dataPicker.py </code>
 
-<code>#to synchronize Raspberry Pi’s clock with GPS time (it is local time) after 65 sec from boot</code>
+<code>#to synchronize Raspberry Pi’s clock with GPS time after 65 sec from boot</code>
 
 <code>@reboot sleep 65 && sudo /bin/python3.7 /home/pi/RPR/pyCodes/setPiClock.py</code>
 
@@ -217,7 +217,7 @@ This block powers on USB dongle (at 12:05 AM), compresses and transmits daily NM
 
 <code>#compress daily RPR file and transfer to a remote server at 12:10 AM</code>
 
-<code>10 00 * * * /bin/python3.7 /home/pi/RPR/pyCodes/packTransmitClon.py</code>
+<code>10 00 * * * /bin/python3.7 /home/pi/RPR/pyCodes/packTransmitCron.py</code>
 
 <code>#power off USB dongle at 12:15 AM</code>
 
@@ -225,7 +225,23 @@ This block powers on USB dongle (at 12:05 AM), compresses and transmits daily NM
 
 # 2. Photovoltaic energy system for the RPR<a name="Photovoltaic energy system for the RPR"></a> 
 
-We measured the RPR’s power consumption using a USB multimeter providing current (A) and Voltage (V) in real time. The power usage will be W (Watt) = A (Ampere) * V (Voltage). We minimized the power consumption of Raspberry Pi (RPi) microcomputer by disabling HDMI output, LEDs, WI-FI & Bluetooth and LAN port (see instruction here: https://learn.pi-supply.com/make/how-to-save-power-on-your-raspberry-pi/). We measured the power consumption of RPi 3B+ and 4B on idle state. The power constitutions for RPi 3B+ and 4B are about 0.7 W and 1.6 W, respectively. We thus recommend using RPi 3B+ with 1GB RAM instead of RPi 4B when supplying power with photovoltaic energy system. To disable the power of each USB port on the RPi 3B+, we use hub-ctrl.c code available at https://github.com/codazoda/hub-ctrl.c. We provide additional codes in our GitHub that allow power control on the RPi 3 (https://github.com/MakanAKaregar/RPR/tree/main/pyCodes). These codes, for example, can be run as cron jobs when the RPR reboots. 
+We measured the RPR’s power consumption using a USB multimeter providing current (A) and Voltage (V) in real time. The power usage will be W (Watt) = A (Ampere) * V (Voltage). We minimized the power consumption of Raspberry Pi (RPi) microcomputer by disabling HDMI output, LEDs, WI-FI & Bluetooth and LAN ports (see instruction here: https://learn.pi-supply.com/make/how-to-save-power-on-your-raspberry-pi/). We measured the power consumption of RPi 3B+ and 4B on idle state. The power constitutions for RPi 3B+ and 4B are about 0.7 W and 1.6 W, respectively. We thus recommend using RPi 3B+ with 1GB RAM instead of RPi 4B when supplying power with photovoltaic energy system. To disable the power of each USB port on the RPi 3B+, we use hub-ctrl.c code available at https://github.com/codazoda/hub-ctrl.c. 
+
+To download and compile <code>hub-ctrl.c</code>, run the following command from RPi’s terminal:
+
+<code>mkdir /home/pi/RPR/</code>
+
+<code> cd /home/pi/RPR/</code>
+
+<code>sudo apt-get update</code>
+
+<code>sudo apt-get install git gcc libusb-dev</code>
+
+<code>git clone https://github.com/codazoda/hub-ctrl.c</code>
+
+<code>gcc -o hub-ctrl hub-ctrl.c -lusb</code>
+
+We have provided additional codes in the RPR repository that allow power control on the RPi 3 (https://github.com/MakanAKaregar/RPR/tree/main/pyCodes). These codes, for example, can be run as cron jobs when the RPR reboots. 
 
 The total power consumption of a RPR with RPi 3B+ in idle mode is 0.7 W (0.14 A * 5 V). When the GPS data is collected the energy consumption reaches up to 1.0 W. Among RPR’s components, our GSM USB dongle (HUAWEI E3372) is energy-hungry and uses the highest amount of power. The RPR power consumption reaches up to about 2.5 W when the USB dongle is active and it drops to around 1.8 W when the USB dongle port is set off using hub-ctrl code.   
 
@@ -254,7 +270,7 @@ To make sure apache is working on the RPR, open a web browser and enter your RPR
 
 3.2 Install <code>php</code> server scripting language and relevant packages.
 
-<code>sudo apt install php8.0 php8.0-gd php8.0-sqlite3 php8.0-curl php8.0-zip php8.0-xml php8.0-mbstring php8.0-mysql php8.0-bz2 php8.0-intl php-smbclient php8.0-imap php8.0-gmp libapache2-mod-php8.0</code>
+<code>sudo apt install php8.0 php8.0-zip php8.0-sqlite3 php8.0-xml php8.0-imap php8.0-mbstring php8.0-curl php8.0-intl php8.0-gd php8.0-bz2 php-smbclient php8.0-gmp php8.0-mysql libapache2-mod-php8.0</code>
 
 3.3 Make sure <code>mysql-common</code>  and  <code>mariadb-server</code> databases are already installed, if not do it so.
   
@@ -406,7 +422,7 @@ and add the following lines:
   
 <code>RewriteRule ^(.*)$ https://%{HTTP_HOST}$1 [R=301,L]</code>
   
-and save the modified the <code>000-default.conf</code> file.
+and save the modified <code>000-default.conf</code> file.
 
 3.22 Enable apache’s rewrite module <code>mod_rewrite</code> to invoke rewrite rules using:
   
@@ -420,7 +436,8 @@ and reboot the RPR:
   
 <code>sudo reboot</code>
 
-After RPR boots up, open nextCloud in a browser and enter your RPR’s IP to the URL bar followed by nextcloud as: https://YourRPR_IP/nextcloud. Since we do not have a signed key, click on advanced and proceed. 
+After RPR boots up, open nextCloud in a browser and enter your RPR’s IP to the URL bar followed by nextcloud as: https://YourRPR_IP/nextcloud. Since we do not have a signed key, click on Advanced and then Proceed to yourIP. 
+
 Now create a Username and Password for your admin account. After clicking on Storage & database, select MySQL/MariaDB and provide the following database information you set in steps 6 and 7:
 
 Database use >>  <code>RPR</code>
