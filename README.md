@@ -338,7 +338,7 @@ You can quit the prompt by entering:
   
 and then put the following in your <code>nextcloud.conf</code> 
   
-´´´Alias /nextcloud "/var/www/nextcloud/"
+```Alias /nextcloud "/var/www/nextcloud/"
 
 <Directory /var/www/nextcloud/>
   Require all granted
@@ -349,7 +349,8 @@ and then put the following in your <code>nextcloud.conf</code>
     Dav off
   </IfModule>
 
-</Directory>´´´
+</Directory>
+```
 
 3.15 Now enable <code>apache</code>’s configuration for nextCloud.
 
