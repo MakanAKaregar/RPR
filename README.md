@@ -341,7 +341,7 @@ and then put the following in your <code>nextcloud.conf</code>
 <code>Alias /nextcloud "/var/www/nextcloud/"</code>
 <code>                                   </code>
 <code><Directory /var/www/nextcloud/></code>
-  <code>Require all granted</code>
+..<code>Require all granted</code>
   <code>AllowOverride All</code>
   <code>Options FollowSymLinks MultiViews</code>
 <code>                                   </code>
