@@ -337,7 +337,8 @@ You can quit the prompt by entering:
 <code>sudo nano /etc/apache2/sites-available/nextcloud.conf</code>
   
 and then put the following in your <code>nextcloud.conf</code> 
-```Alias /nextcloud "/var/www/nextcloud/"
+```
+Alias /nextcloud "/var/www/nextcloud/"
 
 <Directory /var/www/nextcloud/>
   Require all granted
