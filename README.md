@@ -229,7 +229,7 @@ We measured the RPR’s power consumption using a USB multimeter providing curre
 
 To download and compile <code>hub-ctrl.c</code>, run the following command from RPi’s terminal:
 
-<code>mkdir /home/pi/RPR/</code>
+<code>mkdir /home/pi/RPR</code>
 
 <code> cd /home/pi/RPR/</code>
 
@@ -338,23 +338,18 @@ You can quit the prompt by entering:
   
 and then put the following in your <code>nextcloud.conf</code> 
   
-<code>Alias /nextcloud "/var/www/nextcloud/"</code> 
+<code>Alias /nextcloud "/var/www/nextcloud/"</code>
 
 <code><Directory /var/www/nextcloud/></code>
-
   <code>Require all granted</code>
-  
-  <code>AllowOverride All</code>
-  
-  <code>Options FollowSymLinks MultiViews</code>
+  AllowOverride All
+  Options FollowSymLinks MultiViews
 
-  <code><IfModule mod_dav.c></code>
- 
-    <code>Dav off</code>
- 
- <code> </IfModule></code>
+  <IfModule mod_dav.c>
+    Dav off
+  </IfModule>
 
-<code></Directory></code>
+</Directory>
 
 3.15 Now enable <code>apache</code>’s configuration for nextCloud.
 
