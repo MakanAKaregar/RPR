@@ -348,8 +348,8 @@ and then put the following in your <code>nextcloud.conf</code>
   <code><IfModule mod_dav.c></code>
     <code>Dav off</code>
   <code></IfModule></code>
-
-</Directory>
+<code>                                   </code>
+<code></Directory></code>
 
 3.15 Now enable <code>apache</code>’s configuration for nextCloud.
 
