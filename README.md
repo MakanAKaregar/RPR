@@ -1,8 +1,8 @@
 ### Table of Contents
 
-1. [Installation guide for RPR](#RPRInst)
-2. [Photovoltaic energy system for RPR](#solarPanel)
-3. [Installing nextCloud on RPR](#nextCloud)
+1. [Installation guide for RPR](#RPRInst) (https://github.com/MakanAKaregar/RPR/blob/main/README.md#RPRInst)
+2. [Photovoltaic energy system for RPR](#solarPanel) (https://github.com/MakanAKaregar/RPR/blob/main/README.md#solarPanel)
+3. [Installing nextCloud on RPR](#nextCloud) (https://github.com/MakanAKaregar/RPR/blob/main/README.md#nextCloud)
  
 # 1. Installation guide for RPR <a name="Installation guide for RPR"></a> (#RPRInst)
 
