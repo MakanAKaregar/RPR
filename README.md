@@ -272,7 +272,7 @@ We have tested a RPR unit based on RPi 3B+ for two months in Bonn (Germany) foll
 
 # 3. Installing nextCloud on the RPR <a name="nextCloud"></a>
 
-When streaming of NMEA data is preferred for real-time applications, the nextCloud and other client-server software can be installed on the RPR. We keep updates of following guide in https://github.com/MakanAKaregar/RPR.
+When streaming of NMEA data is preferred for real-time applications, the nextCloud and other client-server software can be installed on the RPR.
 
 #### A) Install nextCloud server:
 
