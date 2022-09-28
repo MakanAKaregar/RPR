@@ -259,6 +259,10 @@ We have tested a RPR unit based on RPi 3B+ for two months in Bonn (Germany) foll
 <img src="https://github.com/MakanAKaregar/RPR/blob/main/Figure%20S3.jpg" width="600"/>
 </p>
 
+| component | function  | version | example source  |
+| --- | --- | --- | --- |
+| solar Panel | supplies input voltage to DC system | Sun Plus 80: 80W power 22.3V open circuit voltage | https://de.rs-online.com/web/p/solarpanels/1881233 |
+
 # 3. Installing nextCloud on the RPR <a name="nextCloud"></a>
 
 When streaming of NMEA data is preferred for real-time applications, the nextCloud and other client-server software can be installed on the RPR. We keep updates of following guide in https://github.com/MakanAKaregar/RPR.
