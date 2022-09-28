@@ -4,7 +4,7 @@
 2. [Photovoltaic energy system for RPR](#solarPanel) 
 3. [Installing nextCloud on RPR](#nextCloud) 
  
-# 1. Installation guide for RPR <a name="RPRInst"></a> 
+# 1. Installation guide for RPR (Raspberry Pi Reflector) <a name="RPRInst"></a> 
 
 
 ## 1.1 Raspberry Pi operating system installation 
