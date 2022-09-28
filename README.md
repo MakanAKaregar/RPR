@@ -266,9 +266,9 @@ We have tested a RPR unit based on RPi 3B+ for two months in Bonn (Germany) foll
 | solar charger controller | *prevents the battery from overcharging/overdischarging *prevents a short-circuit between solar panel & battery *final charging voltage 14.1v *overdischarge disconnection 11.1v *activation voltage 12.4v |  12/24V; 6/6A | https://www.conrad.de/de/p/18310-laderegler-pwm-12-v-24-v-6-a-111182.html |
 | power buck module | *provides USB port, DC plug & terminals *converts 12/24V to 5.2V; 5A | JZK 24v/12V to 5V; 5A | https://www.amazon.de/-/en/Power-Module-DC-DC-Supply-Converter/dp/B071ZRXKJY |
 | Solar module cable | *connects solar panel to solar charger controller | QuickCab4 | https://order.phaesun.com/index.php/module-cable-phaesun-quickcab4-2-5-5.html |
- 
-
-
+| USB to micro USB plug cable | connects power buck module to RPi’s power microUSB socket | - | - |
+| Strand cable | connects positive terminals of battery and power buck module to solar charger controller | 1.50 mm², red 1m | https://www.conrad.de/de/p/lapp-4520041-1-litze-h07v-k-1-x-1-50-mm-rot-1-m-607662.html | 
+| Strand cable | connects positive terminals of battery and power buck module to solar charger controller | 1.50 mm², black, 1m | https://www.reichelt.de/ | 
 
 # 3. Installing nextCloud on the RPR <a name="nextCloud"></a>
 
