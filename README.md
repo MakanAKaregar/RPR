@@ -262,6 +262,10 @@ We have tested a RPR unit based on RPi 3B+ for two months in Bonn (Germany) foll
 | component | function  | version | example source  |
 | --- | --- | --- | --- |
 | solar Panel | supplies input voltage to DC system | Sun Plus 80: 80W power 22.3V open circuit voltage | https://de.rs-online.com/web/p/solarpanels/1881233 |
+| battery | *maintenance-free cycle sealed lead acid battery. *suitable for slow charge/discharge situations.
+*performs well in a broad temperature range. | MP26-12C: 12V, 26Ah | https://www.jewo.de/index.php/produkte/multipower/zyklentypen/item/93-mp26-12c |
+
+
 
 # 3. Installing nextCloud on the RPR <a name="nextCloud"></a>
 
