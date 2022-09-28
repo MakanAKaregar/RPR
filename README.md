@@ -261,7 +261,7 @@ We have tested a RPR unit based on RPi 3B+ for two months in Bonn (Germany) foll
 
 | component | function  | version | example source  |
 | --- | --- | --- | --- |
-| ##solar Panel | supplies input voltage to DC system | Sun Plus 80: 80W power 22.3V open circuit voltage | https://de.rs-online.com/web/p/solarpanels/1881233 |
+| solar Panel | supplies input voltage to DC system | Sun Plus 80: 80W power 22.3V open circuit voltage | https://de.rs-online.com/web/p/solarpanels/1881233 |
 | battery | *maintenance-free cycle sealed lead acid battery. *suitable for slow charge/discharge situations. *performs well in a broad temperature range. | MP26-12C: 12V, 26Ah | https://www.jewo.de/index.php/produkte/multipower/zyklentypen/item/93-mp26-12c |
 | solar charger controller | *prevents the battery from overcharging/overdischarging *prevents a short-circuit between solar panel & battery *final charging voltage 14.1v *overdischarge disconnection 11.1v *activation voltage 12.4v |  12/24V; 6/6A | https://www.conrad.de/de/p/18310-laderegler-pwm-12-v-24-v-6-a-111182.html |
 | power buck module | *provides USB port, DC plug & terminals *converts 12/24V to 5.2V; 5A | JZK 24v/12V to 5V; 5A | https://www.amazon.de/-/en/Power-Module-DC-DC-Supply-Converter/dp/B071ZRXKJY |
