@@ -229,7 +229,7 @@ This block powers on USB dongle (at 12:05 AM), compresses and transmits daily NM
 
 <code>15 00 * * * sudo /bin/python3.7 /home/pi/RPR/pyCodes/powerOffUSBdongle.py</code>
 
-# 2. Photovoltaic energy system for the RPR<a name="Photovoltaic energy system for the RPR"></a> 
+# 2. Photovoltaic energy system for the RPR<a name="Photovoltaic energy system for the RPR"></a> (#solarPanel)
 
 We measured the RPR’s power consumption using a USB multimeter providing current (A) and Voltage (V) in real time. The power usage will be W (Watt) = A (Ampere) * V (Voltage). We minimized the power consumption of Raspberry Pi (RPi) microcomputer by disabling HDMI output, LEDs, WI-FI & Bluetooth and LAN ports (see instruction here: https://learn.pi-supply.com/make/how-to-save-power-on-your-raspberry-pi/). We measured the power consumption of RPi 3B+ and 4B on idle state. The power constitutions for RPi 3B+ and 4B are about 0.7 W and 1.6 W, respectively. We thus recommend using RPi 3B+ with 1GB RAM instead of RPi 4B when supplying power with photovoltaic energy system. To disable the power of each USB port on the RPi 3B+, we use hub-ctrl.c code available at https://github.com/codazoda/hub-ctrl.c. 
 
@@ -258,7 +258,7 @@ We have tested a RPR unit based on RPi 3B+ for two months in Bonn (Germany) foll
 <img src="https://github.com/MakanAKaregar/RPR/blob/main/Figure%20S3.jpg" width="600"/>
 </p>
 
-# 3. Installing nextCloud on the RPR <a name="Installing nextCloud on the RPR"></a> 
+# 3. Installing nextCloud on the RPR <a name="Installing nextCloud on the RPR"></a> (#nextCloud)
 
 When streaming of NMEA data is preferred for real-time applications, the nextCloud and other client-server software can be installed on the RPR. We keep updates of following guide in https://github.com/MakanAKaregar/RPR.
 
