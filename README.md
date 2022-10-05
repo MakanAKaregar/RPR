@@ -381,7 +381,7 @@ Alias /nextcloud "/var/www/nextcloud/"
 
 <code>sudo nano /etc/php/8.0/apache2/php.ini</code>
 
-and <code>modify post_max_size</code> and <code>upload_max_filesize</code> variables:
+and modify <code>post_max_size</code> and <code>upload_max_filesize</code> variables (Press <Ctrl> + w to search for text in nano):
   
 <code>post_max_size = 2G</code>
   
@@ -453,7 +453,7 @@ After RPR boots up, open nextCloud in a browser and enter your RPR’s IP to the
 
 Now create a Username and Password for your admin account. After clicking on Storage & database, select MySQL/MariaDB and provide the following database information you set in steps 6 and 7:
 
-Database use >>  <code>RPR</code>
+Database user >>  <code>RPR</code>
   
 Database password >>  <code>passwordYouSetInStep7</code>
   
