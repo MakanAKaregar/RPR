@@ -19,15 +19,15 @@
 
 ## 1.2 Installing Arduino integrated development environment (IDE)
   
-   1.2.1 Download the latest version of Arduino IDE (1.8.16) from Arduino website. Note that the processor of RPi 3 (4) is a 32- (64)- bit, 700 MHz system on a chip, which is built on the ARM11 architecture, thus we recommend installing “Linux ARM 32 bits” download option: https://www.arduino.cc/en/software
+   1.2.1 Download the latest version of Arduino IDE (1.8.19) from Arduino website. Note that the processor of RPi 3 (4) is a 32- (64)- bit, 700 MHz system on a chip, which is built on the ARM11 architecture, thus we recommend installing “Linux ARM 32 bits” download option: https://www.arduino.cc/en/software
   
    1.2.2 Uncompress downloaded file:
    
-   <code>tar -xf arduino-1.8.16-linuxarm.tar.xz</code>
+   <code>tar -xf arduino-1.8.19-linuxarm.tar.xz</code>
   
    1.2.3 Change your current directory to the created folder and install the Arduino IDE using: 
   
-   <code>cd  arduino-1.8.16</code>
+   <code>cd  arduino-1.8.19</code>
    
    <code>sudo ./install.sh</code>
       
