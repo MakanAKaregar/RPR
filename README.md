@@ -310,7 +310,7 @@ To make sure apache is working on the RPR, open a web browser and enter your RPR
   
 <code>CREATE DATABASE nextclouddb;</code> 
   
-If nextclouddb database already exists, use <code>CREATE DROP nextclouddb;</code> to delete it.
+If nextclouddb database already exists, use <code>DROP DATABASE nextclouddb;</code> to delete it.
 
 3.7 Create a user for the database. nextCloud uses this user to authenticate a connection with <code>mysql</code>.
 
@@ -425,7 +425,7 @@ and save the modified <code>default-ssl.conf</code> file.
 
 3.21 To redirect the HTTP requests to HTTPS and enforce SSL usage on nextCloud (via HTTPS), open <code>000-default.conf</code> file.
 
-sudo nano /etc/apache2/sites-available/000-default.conf
+<code>sudo nano /etc/apache2/sites-available/000-default.conf</code>
 
 and add the following lines:
   
@@ -449,7 +449,7 @@ and reboot the RPR:
   
 <code>sudo reboot</code>
 
-After RPR boots up, open nextCloud in a browser and enter your RPR’s IP to the URL bar followed by nextcloud as: https://YourRPR_IP/nextcloud. Since we do not have a signed key, click on Advanced and then Proceed to yourIP. 
+After RPR boots up, open nextCloud in the RPR's browser and enter your RPR’s IP to the URL bar followed by nextcloud as: https://YourRPR_IP/nextcloud. Since we do not have a signed key, click on Advanced and then Proceed to yourIP. 
 
 Now create a Username and Password for your admin account. After clicking on Storage & database, select MySQL/MariaDB and provide the following database information you set in steps 6 and 7:
 
