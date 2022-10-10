@@ -451,7 +451,7 @@ and reboot the RPR:
 
 After RPR boots up, open nextCloud in the RPR's browser and enter your RPR’s IP to the URL bar followed by nextcloud as: https://YourRPR_IP/nextcloud. Since we do not have a signed key, click on Advanced and then Proceed to yourIP. 
 
-Now create a Username and Password for your admin account. After clicking on Storage & database, select MySQL/MariaDB and provide the following database information you set in steps 6 and 7:
+Now create a Username and Password for your admin account. After clicking on Storage & database, select MySQL/MariaDB and provide the following database information you set in steps 3.6 and 3.7:
 
 Database user >>  <code>RPR</code>
   
