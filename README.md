@@ -157,7 +157,7 @@ You can select a text editor to make changes to the crontab file. Select your de
 
 <code>#to parse RPR nmea data into daily files after 60 sec from boot</code>
 
-<code>@reboot sleep 60 &&  sudo /bin/python3.7 /home/pi/RPR/pyCodes/dataPicker.py</code>
+<code>@reboot sleep 60 && /bin/python3.7 /home/pi/RPR/pyCodes/dataPicker.py</code>
 
 <code>#to synchronize Raspberry Pi’s clock with GPS time (it is local time) after 65 sec from boot</code>
 
@@ -208,7 +208,7 @@ This block initiates data collection 60 seconds after RPR boots and synchronizes
 
 <code>#to parse RPR nmea data into daily files after 60 sec from boot</code>
 
-<code>@reboot sleep 60 &&  sudo /bin/python3.7 /home/pi/RPR/pyCodes/dataPicker.py </code>
+<code>@reboot sleep 60 && /bin/python3.7 /home/pi/RPR/pyCodes/dataPicker.py </code>
 
 <code>#to synchronize Raspberry Pi’s clock with GPS time after 65 sec from boot</code>
 
