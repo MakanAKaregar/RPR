@@ -230,6 +230,10 @@ This block powers on USB dongle (at 12:05 AM), compresses and transmits daily NM
 
 <code>15 00 * * * sudo /bin/python3.7 /home/pi/RPR/pyCodes/powerOffUSBdongle.py</code>
 
+A caron task outputs its logs to <code>/var/log/syslog</code>. To turn on this capability, open <code>rsyslog.conf</code> using nano:
+<code>sudo nano /etc/rsyslog.conf</code>
+and Press <Ctrl> + w to search for <code>cron</code> in the opened file, then uncomment <code>cron.*</code>.
+
 # 2. Photovoltaic energy system for the RPR<a name="solarPanel"></a> 
 
 We measured the RPR’s power consumption using a USB multimeter providing current (A) and Voltage (V) in real time. The power usage will be W (Watt) = A (Ampere) * V (Voltage). We minimized the power consumption of Raspberry Pi (RPi) microcomputer by disabling HDMI output, LEDs, WI-FI & Bluetooth and LAN ports (see instruction here: https://learn.pi-supply.com/make/how-to-save-power-on-your-raspberry-pi/). We measured the power consumption of RPi 3B+ and 4B on idle state. The power constitutions for RPi 3B+ and 4B are about 0.7 W and 1.6 W, respectively. We thus recommend using RPi 3B+ with 1GB RAM instead of RPi 4B when supplying power with photovoltaic energy system. To disable the power of each USB port on the RPi 3B+, we use hub-ctrl.c code available at https://github.com/codazoda/hub-ctrl.c. 
