@@ -231,7 +231,9 @@ This block powers on USB dongle (at 12:05 AM), compresses and transmits daily NM
 <code>15 00 * * * sudo /bin/python3.7 /home/pi/RPR/pyCodes/powerOffUSBdongle.py</code>
 
 A caron task outputs its logs to <code>/var/log/syslog</code>. To turn on this capability, open <code>rsyslog.conf</code> using nano:
+
 <code>sudo nano /etc/rsyslog.conf</code>
+
 and Press <Ctrl> + w to search for <code>cron</code> in the opened file, then uncomment <code>cron.*</code>.
 
 # 2. Photovoltaic energy system for the RPR<a name="solarPanel"></a> 
