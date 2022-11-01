@@ -5,14 +5,17 @@
 
 import os
 import subprocess
-from datetime import date
+from datetime import date, timedelta
  
-#get today's date
+#today's date
 today = date.today()
-yr = '{:02.0f}'.format(today.year) 
-mn = '{:02.0f}'.format(today.month)
-#get day of yesterday
-dy = '{:02.0f}'.format(today.day-1)
+
+#day, month and year of yesterday
+yesterday = today - timedelta(days=1)
+dy = '{:02.0f}'.format(yesterday.day)
+mn = '{:02.0f}'.format(yesterday.month)
+yr = '{:02.0f}'.format(yesterday.year) 
+
 #get the last two digits of year
 yr = yr[2:4]
 
@@ -22,6 +25,3 @@ data_dir= '/home/pi/RPR/data/'
 os.system('gzip '+data_dir+yr+mn+dy+'.log')
 filename = data_dir+yr+mn+dy+'.log.gz'
 subprocess.call(' scp ' + filename + ' remoteUserID@remoteIP:/remoteDirectory/')
-
-
-
