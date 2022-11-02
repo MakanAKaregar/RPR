@@ -33,7 +33,7 @@
       
  ## 1.3 Assembling GPS module (MPHW) and connecting to the Raspberry Pi:
  
- General instructions for soldering Adafruit GPS FeatherWing, Adafruit Feather Adalogger microcontroller and stackable header can be found here: follow Section 2.1 in [Tutorial Adafruit GNSS-R.pdf](https://github.com/fgnievinski/mphw/blob/main/docs/Tutorial%20MPHW%20GNSS-R.pdf):
+ General instructions for soldering Adafruit GPS FeatherWing, Adafruit Feather Adalogger microcontroller and stackable header can be found here (follow Section 2.1 in [Tutorial Adafruit GNSS-R.pdf](https://github.com/fgnievinski/mphw/blob/main/docs/Tutorial%20MPHW%20GNSS-R.pdf)):
 
 
 Plug the assembled GPS (MPHW) module into RPi’s USB socket using a USB to Micro USB cable. 
