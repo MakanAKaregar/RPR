@@ -7,4 +7,4 @@
 #05 00 * * * sudo /bin/python3.7 /home/pi/RPR/pyCodes/PowerOnUSBdongle.py
 
 import os
-os.system("cd /home/pi/RPR/hub-ctrl.c-master ; sudo ./hub-ctrl -h 1 -P 3 -p 1")
+os.system("cd /home/pi/RPR/hub-ctrl.c ; sudo ./hub-ctrl -h 1 -P 3 -p 1")
