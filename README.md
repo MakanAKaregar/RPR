@@ -252,6 +252,8 @@ To download and compile <code>hub-ctrl.c</code>, run the following command from 
 
 <code>git clone https://github.com/codazoda/hub-ctrl.c</code>
 
+<code> cd hub-ctrl.c/</code> 
+
 <code>gcc -o hub-ctrl hub-ctrl.c -lusb</code>
 
 We have provided additional codes in the RPR repository that allow power control on the RPi 3 (https://github.com/MakanAKaregar/RPR/tree/main/pyCodes). These codes, for example, can be run as cron jobs when the RPR reboots. 
