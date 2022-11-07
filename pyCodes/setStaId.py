@@ -52,12 +52,10 @@ if args.date_end == None:
 else:
     date2 = args.date_end
         
-
 year1 = int(date[0:4])
 mn1 = date[5:7]
 day1 = date[8:10]
 doy = datetime(int(year1),int(mn1),int(day1)).timetuple().tm_yday  # calculate doy of latency date
-
 
 year2 = int(date2[0:4])
 mn2 = date2[5:7]
@@ -68,9 +66,7 @@ doy_list = list(range(doy, doy2+1))
 year_list = list(range(year1, year2+1))
     
 data_dir = args.data_dir
-    
-
-                
+                 
 # loop over years and day of years
 for year in year_list:
         
@@ -97,5 +93,3 @@ for year in year_list:
 
             else:
                     print('RPR gzip file '+yr + ' ' + '{:02d}'.format(mn) +' '+'{:02d}'.format(day)+'  does not exist')
-         
-              
