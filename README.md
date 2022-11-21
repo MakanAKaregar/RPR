@@ -6,6 +6,11 @@
 
 For more information about the RPR sensor, please check out our paper Karegar, M.A., Kusche, J., Nievinski, F.G., Larson, K.M. (2022). Raspberry Pi Reflector (RPR): a Low-cost Water-level Monitoring System based on GNSS Interferometric Reflectometry, Water Resources Research (in press), https://doi.org/10.1029/2021WR031713 
 
+<p align=center>
+<img src="https://github.com/MakanAKaregar/RPR/blob/main/Figure2.png" width="600"/>
+</p>
+The RPR hardware array comprising: (a) Raspberry Pi 4 Model B (b) Adafruit Feather Adalogger microcontroller (c) Adafruit GPS FeatherWing receiver (d) GPS external antenna (e) Configuration of RPR prototype setup used. This setup uses 4G/LTE dongle modem. 
+
 ### Table of Contents
 
 1. [Installation guide for RPR](#RPRInst)
