@@ -1,16 +1,16 @@
-### Table of Contents
-
-1. [Installation guide for RPR](#RPRInst)
-2. [Photovoltaic energy system for RPR](#solarPanel) 
-3. [Installing nextCloud on RPR](#nextCloud) 
-
-
+## Key Points 
 * The Raspberry Pi Reflector (RPR) is a prototype for tracking water levels with centimeter level accuracy
 * RPR consists of cost-effective single-frequency Global Positioning System module and navigation antenna connected to  
   Raspberry Pi microcomputer
 * RPR uses Interferometric Reflectometry technique and can be operated safely in extreme weather with lower operational costs
 
 For more information about the RPR sensor, please check out our paper Karegar, M.A., Kusche, J., Nievinski, F.G., Larson, K.M. (2022). Raspberry Pi Reflector (RPR): a Low-cost Water-level Monitoring System based on GNSS Interferometric Reflectometry, Water Resources Research (in press), https://doi.org/10.1029/2021WR031713 
+
+### Table of Contents
+
+1. [Installation guide for RPR](#RPRInst)
+2. [Photovoltaic energy system for RPR](#solarPanel) 
+3. [Installing nextCloud on RPR](#nextCloud) 
 
 # 1. Installation guide for RPR (Raspberry Pi Reflector) <a name="RPRInst"></a> 
 
