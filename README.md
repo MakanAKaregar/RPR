@@ -5,6 +5,7 @@
 * RPR uses Interferometric Reflectometry technique and can be operated safely in extreme weather with lower operational costs
 
 For more information about the RPR sensor, please check out our paper:
+
 Karegar, M.A., Kusche, J., Nievinski, F.G., Larson, K.M. (2022). Raspberry Pi Reflector (RPR): a Low-cost Water-level Monitoring System based on GNSS Interferometric Reflectometry, Water Resources Research (in press), https://doi.org/10.1029/2021WR031713 
 
 <p align=center>
