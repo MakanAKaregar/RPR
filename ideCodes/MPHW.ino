@@ -270,8 +270,8 @@ void datalog(const char basename[])
 {
     char filename[MAX_FILENAME_LEN];
     strncpy(filename, basename, strlen(basename)+1);
-    strcat(filename, ".log");
-    serialPrintln(String(filename));//edited by Makan
+ //   strcat(filename, ".log");//edited by Makan
+ //   serialPrintln(String(filename));//edited by Makan
     
     // open the file
     File file = SD.open(filename, FILE_WRITE);
