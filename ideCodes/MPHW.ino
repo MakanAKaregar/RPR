@@ -4,6 +4,7 @@
  *  Author: Cristthian Marafigo Arpino <cristthian.m.arpino@protonmail.com>
  *  Author: Lucas Doria de Carvalo <lucas.doria@ufrgs.br>
  *  Author: Iuri Mendonça Tinti <iuri.tinti@inf.ufrgs.br>
+ *  Edited by Makan Karegar for RPR <karegar@uni-bonn.de>
  *  License: GPLv2
  *  Purpose: Firmware to perform simple datalog of GPS raw data with the
  *           Adalogger Feather board and GPS Feathering module.
