@@ -91,7 +91,7 @@ Tools > Board > Boards Manager > Contributed. Select “Adafruit AVR Boards” a
 - ensure that board and port are correct
 - compile and upload the MPHW.ino to the Adafruit Feather 32u4 board under Sketch > Upload 
 
-##### Note: if you use the new chipset (MTK333) instead of legacy MTK3333-based module, you should change the default <code>GPS_BAUD_RATE</code> from <code>115200</code> to <code>9600</code> in MPHW.ino code.
+##### Note: if you use the new chipset (MTK3333) instead of legacy MTK3333-based module, you should change the default <code>GPS_BAUD_RATE</code> from <code>115200</code> to <code>9600</code> in MPHW.ino code.
 
 1.5.6 Test GPS NMEA data streaming/transmitting to the serial port on terminal
 
@@ -147,6 +147,9 @@ $GPRMC,172645.000,A,5043.6391,N,00705.2406,E,0.14,290.38,151121,,,A*62
 $GPRMC,172645.000,A,5043.6391,N,00705.2406,E,0.14,290.38,151121,,,A*62
 211115.log
 ```
+
+Note: if you use the new chipset (MTK3333) instead of legacy MTK3339-based module:
+MTK3333 does not support the output of non-integer SNR values. You can skip step 1.6 if you use MTK3333. 
 
 ## 1.7 Installing some python packages:
 
