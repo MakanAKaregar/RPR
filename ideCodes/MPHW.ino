@@ -17,7 +17,7 @@
 #define GPSSerialEvent     serialEvent1
 
 #define GPS_BAUD_RATE_DEFAULT    9600   // original firmware
-#define GPS_BAUD_RATE  115200
+#define GPS_BAUD_RATE  115200 // This baud rate is for MTK3339 chipset, please CHANGE this to 9600 if you use the new chipset (MTK3333)
 
 // time between GPS readings:
 #define  GPS_UPDATE_INTERVAL  1000          // in milliseconds
