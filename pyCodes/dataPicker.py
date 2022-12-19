@@ -3,6 +3,7 @@
 ## Makan Karegar, Feb 6, 2020, Bonn. 
 
 import serial# don't forget to install the serial package
+from datetime import timezone
 import datetime
 
 file_path="/home/pi/RPR/data/" # path for saving daily GPS SNR data
@@ -17,10 +18,10 @@ baud_rate = 9600; # in your IDE code, that is Serial.begin(baud_rate)
 
 ser_ls = serial.Serial(serial_port, baud_rate)#listen to serial port 
 
-#initialization date
-RunD = datetime.datetime.now().day
-RunM = datetime.datetime.now().month
-RunY = datetime.datetime.now().year
+#getting current UTC date
+RunD = datetime.datetime.now(timezone.utc).day
+RunM = datetime.datetime.now(timezone.utc).month
+RunY = datetime.datetime.now(timezone.utc).year
 
 while True:
     ln = ser_ls.readline();#read a line from serial port
@@ -28,10 +29,10 @@ while True:
     print(ln);
     
     #check the current date with initialization date (as in RunD, RunM and RunY)
-    if (datetime.datetime.now().year == RunY and datetime.datetime.now().month == RunM and datetime.datetime.now().day == RunD):
+    if (datetime.datetime.now(timezone.utc).year == RunY and datetime.datetime.now(timezone.utc).month == RunM and datetime.datetime.now(timezone.utc).day == RunD):
         output_file.write(ln);
     else:
-        date_now=str(datetime.datetime.now());# current date and time
+        date_now=str(datetime.datetime.now(timezone.utc));# current date 
         filename=(date_now[2:4]+date_now[5:7]+date_now[8:10]+'.log');# filename is set at the daily basis
         output_file = open(file_path+filename,"a");
         print(ln);
