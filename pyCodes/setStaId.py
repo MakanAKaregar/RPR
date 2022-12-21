@@ -1,3 +1,4 @@
+# coding: iso-8859-1 -*-
 """
 This converts RPR's nmea filename to a format compatible with gnssrefl software
 Makan Karegar, Uni Bonn, Aug 30, 2021
