@@ -185,11 +185,11 @@ You can select a text editor to make changes to the crontab file. Select your de
 
 Note that for RPi 3 B and B+ the python source code is at <code>/bin/python3.7</code> and for RPi 4 at <code>/usr/bin/python3.7</code>
 
-A simple code can be added to the time-based cronjob scheduler for compressing daily NMEA files and transfer to a server. For example, the python code packTransmitClon.py will be run every day at 12:10 AM:
+A simple code can be added to the time-based cronjob scheduler for compressing daily NMEA files and transfer to a server. For example, the python code packTransmitCron.py will be run every day at 12:10 AM:
 
 <code>#to compress daily RPR files and transfer to a remote server at 12:10 AM</code>
 
-<code>10 00 * * * /bin/python3.7 /home/pi/RPR/pyCodes/packTransmitClon.py</code>
+<code>10 00 * * * /bin/python3.7 /home/pi/RPR/pyCodes/packTransmitCron.py</code>
 
 
 Ensure that you included the correct file path in your crontab command. 
