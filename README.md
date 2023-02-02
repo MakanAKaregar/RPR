@@ -208,7 +208,7 @@ This block powers off the LAN and HDMI ports to save energy when RPR reboots. Th
 
 <code>#switch off the HDMI port after boot</code>
 
-<code>@reboot /bin/python3.7 /home/pi/RPR/pyCodes/powerOffHDMI.py</code>
+<code>@reboot /bin/python3.7 /home/pi/RPR/pyCodes/powerOffHdmi.py</code>
 
 <code>#start VNC server after reboot</code>
 
