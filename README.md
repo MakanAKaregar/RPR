@@ -121,7 +121,7 @@ $GPRMC,171541.000,A,5043.6373,N,00705.2540,E,0.02,25.95,151121,,,A*55
 211115.log
 ```
 
-## 1.6 Updating GPS module’s firmware 
+## 1.6 Updating GPS module’s firmware (only applicable to legacy MTK3339-based module)
 
 To generate the SNR data with 0.1-dB precision we should update Adafruit GPS FeatherWing’s firmware. To perform the firmware update, we require a Windows computer to install The GlobalTop Flash Tool software which allows updating the firmware of GPS chip. The custom firmware for the MediaTek GPS can be made available upon request. After updating the GPS firmware, plug the GPS module into the RPi and redo steps from 5.3 to 5.6.
 You can test if the GPS firmware is upgraded by the following command:
