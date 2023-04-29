@@ -159,19 +159,53 @@ MTK3333 does not support the output of non-integer SNR values. You can skip step
 
 Make sure your RPi is connected to the internet. We will need a few additional python packages to make the python scripts work. Running the following command from terminal will install these libraries:
 
-1.6.1  <code>sudo apt-get update</code>
+1.7.1  <code>sudo apt-get update</code>
 
-1.6.2  <code>sudo pip3 install pyserial</code>
+1.7.2  <code>sudo pip3 install pyserial</code>
 
-1.6.3  <code>sudo pip3 install timezonefinder</code>
+1.7.3  <code>sudo pip3 install timezonefinder</code>
 
-1.6.4  <code>sudo pip3 install pytz</code>
+1.7.4  <code>sudo pip3 install pytz</code>
 
-1.6.5  <code>sudo pip3 install pynmea2</code>
+1.7.5  <code>sudo pip3 install pynmea2</code>
 
-1.6.6  Install non-interactive <code>ssh</code> password provider <code>sshpass</code>:
+1.7.6  Install non-interactive <code>ssh</code> password provider <code>sshpass</code>:
 
-       <code>sudo apt install sshpass</code>.
+       <code>sudo apt install sshpass</code>
+       
+## 1.8  Setting systemd for service configuration to collect data at startup on RPR       
+
+ 1.8.1 Change your current directory to:
+ 
+  <code>cd /lib/systemd/system/</code>
+
+ 1.8.2 Create a service unit file called <code>dataPicker.service</code>. systemd uses the python code <code>dataPicker.py</code> to run at startup on RPR
+ 
+  <code>sudo nano dataPicker.service</code>
+ 
+ 1.8.3 Paste the following lines to your <code>dataPicker.service</code> 
+  
+```
+[Unit]
+Description=RPR data picking
+After=After=network.target
+
+[Service]
+Type=simple
+ExecStart=/bin/python3.9 /home/pi/RPR/pyCodes/dataPicker.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+and save the <code>>dataPicker.service</code> file by pressing <Ctrl> + x followed by y and then press <Enter>.
+
+1.8.3 sudo chmod 644 /lib/systemd/system/dataPicker.service
+1.8.4 chmod +x /home/pi/RPR/pyCodes/dataPicker.py
+1.8.5 sudo systemctl daemon-reload
+1.8.6 sudo systemctl enable dataPicker.service
+1.8.7 sudo systemctl start dataPicker.service
+
 
 ## 1.8 Setting crontab jobs
 
