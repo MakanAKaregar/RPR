@@ -155,7 +155,7 @@ $GPRMC,172645.000,A,5043.6391,N,00705.2406,E,0.14,290.38,151121,,,A*62
 Note: if you use the new chipset (MTK3333) instead of legacy MTK3339-based module:
 MTK3333 does not support the output of non-integer SNR values. You can skip step 1.6 if you use MTK3333. 
 
-## 1.7 Installing some python packages:
+## 1.7 Installing some python packages and sshpass utility:
 
 Make sure your RPi is connected to the internet. We will need a few additional python packages to make the python scripts work. Running the following command from terminal will install these libraries:
 
@@ -168,6 +168,10 @@ Make sure your RPi is connected to the internet. We will need a few additional p
 1.6.4  <code>sudo pip3 install pytz</code>
 
 1.6.5  <code>sudo pip3 install pynmea2</code>
+
+1.6.6  Install non-interactive <code>ssh</code> password provider <code>sshpass</code>:
+
+       <code>sudo apt install sshpass</code>.
 
 ## 1.8 Setting crontab jobs
 
