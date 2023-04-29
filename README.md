@@ -171,7 +171,6 @@ Make sure your RPi is connected to the internet. We will need a few additional p
 
 1.7.6  Install non-interactive <code>ssh</code> password provider <code>sshpass</code>
 
-       <code>sudo apt install sshpass</code>
        
 ## 1.8  Setting systemd for service configuration to collect data at startup on RPR       
 
@@ -200,13 +199,27 @@ WantedBy=multi-user.target
 
 ```
 
-and save the <code>>dataPicker.service</code> file by pressing <Ctrl> + x followed by y and then press <Enter>.
+and save the <code>dataPicker.service</code> file by pressing <Ctrl> + x followed by y and then press <Enter>.
 
-1.8.3 sudo chmod 644 /lib/systemd/system/dataPicker.service
-1.8.4 chmod +x /home/pi/RPR/pyCodes/dataPicker.py
-1.8.5 sudo systemctl daemon-reload
-1.8.6 sudo systemctl enable dataPicker.service
-1.8.7 sudo systemctl start dataPicker.service
+1.8.3 Change the permission on the <code>dataPicker.service</code> file:
+  
+  <code>sudo chmod 644 /lib/systemd/system/dataPicker.service</code>
+
+1.8.4 Set the execute permission on <code>dataPicker.py</code> file, allowing it to be run as a program:
+  
+  <code>chmod +x /home/pi/RPR/pyCodes/dataPicker.py</code>
+
+1.8.5 Reload systemd files. This ensures running possible changed unit files in <code>dataPicker.service</code>:
+  
+  <code>sudo systemctl daemon-reload</code>
+  
+1.8.6 Enable the service to run automatically every time RPR boots up:
+  
+  <code>sudo systemctl enable dataPicker.service</code>
+
+1.8.7 You can now start the service to manually verify collecting data:
+  
+  <code>sudo systemctl start dataPicker.service</code>
 
 
 ## 1.8 Setting crontab jobs
