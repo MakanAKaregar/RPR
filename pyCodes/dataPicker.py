@@ -2,7 +2,7 @@
 ## Note: The IDE sketch uploaded to GPS board is slightly modified in a way that it writes only GPS data to serial port and avoid extra texts
 ## Makan Karegar, Feb 6, 2020, Bonn. 
 
-import serial# don't forget to install the serial package
+import serial#don't forget to install the serial package
 from datetime import timezone
 import datetime
 
