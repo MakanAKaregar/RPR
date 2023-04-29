@@ -169,20 +169,24 @@ Make sure your RPi is connected to the internet. We will need a few additional p
 
 1.7.5  <code>sudo pip3 install pynmea2</code>
 
-1.7.6  Install non-interactive <code>ssh</code> password provider <code>sshpass</code>
+1.7.6  Install non-interactive <code>ssh</code> password provider <code>sshpass</code>:
+  
+       <code>sudo apt install sshpass</code>
 
        
-## 1.8  Setting systemd for service configuration to collect data at startup on RPR       
+## 1.8  Setting systemd for service configuration to collect data at startup on RPR      
+
+We automate data picking by setting up system service that runs the <code>dataPicker.py</code> python code whenever the RPi boots up.
 
  1.8.1 Change your current directory to:
  
   <code>cd /lib/systemd/system/</code>
 
- 1.8.2 Create a service unit file called <code>dataPicker.service</code>. systemd uses the python code <code>dataPicker.py</code> to run at startup on RPR
+ 1.8.2 Create a service unit file called <code>dataPicker.service</code>. systemd uses the python code <code>dataPicker.py</code> to run at startup on RPR:
  
   <code>sudo nano dataPicker.service</code>
  
- 1.8.3 Paste the following lines to your <code>dataPicker.service</code> 
+ 1.8.3 Paste the following lines into your <code>dataPicker.service</code> 
   
 ```
 [Unit]
@@ -209,49 +213,52 @@ and save the <code>dataPicker.service</code> file by pressing <Ctrl> + x followe
   
   <code>chmod +x /home/pi/RPR/pyCodes/dataPicker.py</code>
 
-1.8.5 Reload systemd files. This ensures running possible changed unit files in <code>dataPicker.service</code>:
+1.8.5 Since we have made changes in /lib/systemd/system directory, reload systemd files:
   
   <code>sudo systemctl daemon-reload</code>
   
-1.8.6 Enable the service to run automatically every time RPR boots up:
+1.8.6 Enable the <code>dataPicker.service</code> service to run automatically every time RPR boots up:
   
   <code>sudo systemctl enable dataPicker.service</code>
 
-1.8.7 You can now start the service to manually verify collecting data:
+1.8.7 You can now start the <code>dataPicker.service</code> service to manually verify collecting data:
   
   <code>sudo systemctl start dataPicker.service</code>
+  
+1.8.8 Check the status of the <code>dataPicker.service</code> service:
+  
+  <code>sudo systemctl status hello.service</code>
 
 
-## 1.8 Setting crontab jobs
+## 1.9 Setting crontab jobs
 
-We automate data picking and RPi’s clock synchronization by setting up two boot-based cron jobs that run python codes whenever the RPi boots up. To create a crontab file, execute the following commands in a terminal:
+We automate RPi’s clock synchronization by setting up a boot-based cron job that runs the <code>setPiClock.py</code> python code whenever the RPi boots up. To create a crontab file, execute the following commands in a terminal:
 
-1.8.1 <code>crontab -e</code>
+1.9.1 <code>crontab -e</code>
 
 You can select a text editor to make changes to the crontab file. Select your desired text editor (e.g. nano, vi ...).
 
-1.8.2 Add these lines to the crontab file: 
+1.9.2 Add these lines to the crontab file: 
 
-<code>#to parse RPR nmea data into daily files after 60 sec from boot</code>
+<code>##--------------Sync RPR's clock--------------</code>
 
-<code>@reboot sleep 60 && /bin/python3.7 /home/pi/RPR/pyCodes/dataPicker.py</code>
+<code>#to synchronize Raspberry Pi’s clock with GPS time (it is local time) after 15 sec from boot</code>
+  
+<code>@reboot sleep 15 && sudo /bin/python3.9 /home/pi/RPR/pyCodes/setPiClock.py</code>
 
-<code>#to synchronize Raspberry Pi’s clock with GPS time (it is local time) after 65 sec from boot</code>
+Note that for RPi 3 B and B+ the python source code is at <code>/bin/python3.9</code> and for RPi 4 at <code>/usr/bin/python3.9</code>
 
-<code>@reboot sleep 65 && sudo /bin/python3.7 /home/pi/RPR/pyCodes/setPiClock.py</code>
+A simple code can be added to the time-based cronjob scheduler for compressing daily NMEA files and transfer to a server. For example, the python code packTransmitCron.py will be run every day at 05:10 AM:
 
-Note that for RPi 3 B and B+ the python source code is at <code>/bin/python3.7</code> and for RPi 4 at <code>/usr/bin/python3.7</code>
+<code>##--------------data transmit--------------</code>
+  
+<code>#to compress daily RPR files and transfer to a remote server at 05:10 AM</code>
 
-A simple code can be added to the time-based cronjob scheduler for compressing daily NMEA files and transfer to a server. For example, the python code packTransmitCron.py will be run every day at 12:10 AM:
-
-<code>#to compress daily RPR files and transfer to a remote server at 12:10 AM</code>
-
-<code>10 00 * * * /bin/python3.7 /home/pi/RPR/pyCodes/packTransmitCron.py</code>
-
+<code>10 05 * * * /bin/python3.9 /home/pi/RPR/pyCodes/packTransmitCron.py</code>
 
 Ensure that you included the correct file path in your crontab command. 
 
-1.8.4 Example of cronjob schedules for a RPR powering with photovoltaic energy system.
+1.9.3 Example of cronjob schedules for a RPR powering with photovoltaic energy system.
 
 This setting uses a USB dongle for transmitting daily pack of NMEA data (not a real-time streaming).
 
