@@ -54,18 +54,22 @@ The RPR hardware array comprising: (a) Raspberry Pi 4 Model B (b) Adafruit Feath
 Plug the assembled GPS (MPHW) module into RPi’s USB socket using a USB to Micro USB cable. 
 
 ## 1.4 Downloading Arduino and python codes:
-
-  1.4.1  Change your current directory to:
+  
+1.4.1  Installing <code>git</code> 
+ 
+ <code>sudo apt install git</code>
+  
+1.4.2  Change your current directory to:
   
   <code>cd /home/pi</code>
   
-1.4.2 Download Arduino and python codes from GitHub using git commad:
+1.4.3 Download Arduino and python codes from GitHub using git commad:
 
   <code>git clone https://github.com/MakanAKaregar/RPR.git</code>
   
 A new directory (RPR) is created under <code>/home/pi</code>  
     
-1.4.3 Create a new directory for archiving RPR’s daily NMEA data:
+1.4.4 Create a new directory for archiving RPR’s daily NMEA data:
     
 <code>mkdir /home/pi/RPR/data</code>
 
