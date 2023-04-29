@@ -169,7 +169,7 @@ Make sure your RPi is connected to the internet. We will need a few additional p
 
 1.7.5  <code>sudo pip3 install pynmea2</code>
 
-1.7.6  Install non-interactive <code>ssh</code> password provider <code>sshpass</code>:
+1.7.6  Install non-interactive <code>ssh</code> password provider <code>sshpass</code>
 
        <code>sudo apt install sshpass</code>
        
@@ -197,6 +197,8 @@ Restart=always
 
 [Install]
 WantedBy=multi-user.target
+
+```
 
 and save the <code>>dataPicker.service</code> file by pressing <Ctrl> + x followed by y and then press <Enter>.
 
