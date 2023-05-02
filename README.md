@@ -161,13 +161,13 @@ Make sure your RPi is connected to the internet. We will need a few additional p
 
 1.7.1  <code>sudo apt-get update</code>
 
-1.7.2  <code>sudo pip3 install pyserial</code>
+1.7.2  <code>sudo pip3.9 install pyserial</code>
 
-1.7.3  <code>sudo pip3 install timezonefinder</code>
+1.7.3  <code>sudo pip3.9 install timezonefinder</code>
 
-1.7.4  <code>sudo pip3 install pytz</code>
+1.7.4  <code>sudo pip3.9 install pytz</code>
 
-1.7.5  <code>sudo pip3 install pynmea2</code>
+1.7.5  <code>sudo pip3.9 install pynmea2</code>
 
 1.7.6  Install non-interactive <code>ssh</code> password provider <code>sshpass</code>:
   
