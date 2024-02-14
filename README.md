@@ -227,7 +227,7 @@ and save the <code>dataPicker.service</code> file by pressing <Ctrl> + x followe
   
 1.8.8 Check the status of the <code>dataPicker.service</code> service:
   
-  <code>sudo systemctl status hello.service</code>
+  <code>sudo systemctl status dataPicker.service</code>
 
 
 ## 1.9 Setting crontab jobs
