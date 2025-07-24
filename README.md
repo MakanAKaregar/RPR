@@ -93,6 +93,20 @@ On RPR (connected to a monitor), join your network:
 
 <code>sudo zerotier-cli join <YOUR_NETWORK_ID></code>
 
+If you don't see your new device in <code>my.zerotier.com</code>, the local ZeroTier identity or data may be corrupted. You can reset the identity, which will generate a new Node ID for your device.
+
+Reset the ZeroTier identity
+
+<code>sudo systemctl stop zerotier-one</code>
+
+<code>sudo rm -rf /var/lib/zerotier-one</code>
+
+<code>sudo systemctl start zerotier-one</code>
+
+Then:
+
+<code>sudo zerotier-cli join <YOUR_NETWORK_ID></code>
+
 6.2 GUI remote access (only BPi M5 or RPi 4):
 
 TeamViewer is pre-installed. To set up:
