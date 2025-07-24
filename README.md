@@ -34,11 +34,18 @@ This image is for the Banana Pi M5, which features a quad-core ARM Cortex-A55 CP
 
 This image is intended for the Raspberry Pi Zero, a single-core micro-computer that consumes three to four times less power than the BPi M5 or RPi 4. This makes it highly suitable for solar-powered applications where power management is crucial. Due to its limited processing power, the Raspberry Pi Zero cannot run computationally intensive applications like gnssrefl locally. Instead, NMEA data should be transferred from the RPR unit to a remote server for processing. This image contains Raspberry Pi OS Lite (32-bit), a Debian Bookworm-based version without a desktop environment.  This image also comes pre-configured with all necessary libraries, code, and environment variables required for the RPR system.
 
-1. Download image from GitHub using git commad:
+1. Download the RPR image for either the RPi Zero or BPi M5 from the University of Bonn cloud storage using the <code>wget</code> command:
+   
+ RPR with RPi Zero:
+ 
+ <code>wget "https://uni-bonn.sciebo.de/s/r6cPmmdBBsqKL7A" -O RPR_RPiZero.img.gz</code>
 
- <code>git clone https://github.com/MakanAKaregar/RPR.git </code>
+  RPR with BPi M5:
+ 
+ <code>wget "https://uni-bonn.sciebo.de/s/r6cPmmdBBsqKL7A/download?path=%2F&files=RPR_RPiZero.img.gz" -O RPR_RPiZero.img.gz</code>
 
-2. Download and install RPi Imager to a computer with a micro SD card reader
+
+3. Download and install RPi Imager to a computer with a micro SD card reader
 
 Go to:  <code>https://www.raspberrypi.com/software/ </code>. Download and install the version for your operating system (Windows, macOS, Linux).
 
