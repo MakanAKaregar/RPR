@@ -36,13 +36,9 @@ This image is intended for the Raspberry Pi Zero, a single-core micro-computer t
 
 1. Download the RPR image for either the RPi Zero or BPi M5 from the University of Bonn cloud storage using the <code>wget</code> command:
    
- RPR with RPi Zero:
- 
- <code>wget "https://uni-bonn.sciebo.de/s/7TZNmLZQtPXEqtN"</code>
+ RPR with RPi Zero: <code>https://uni-bonn.sciebo.de/s/7TZNmLZQtPXEqtN</code>
 
-  RPR with BPi M5:
- 
- <code>wget "https://uni-bonn.sciebo.de/s/fqC4DPok9ogZtEF"</code>
+  RPR with BPi M5:  <code>https://uni-bonn.sciebo.de/s/fqC4DPok9ogZtEF</code>
 
 3. Download and install RPi Imager to a computer with a micro SD card reader
 
