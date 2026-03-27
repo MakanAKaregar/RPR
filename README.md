@@ -1,3 +1,5 @@
+This project is licensed under the GNU General Public License v3.0 - see the LICENSE file for details.
+
 ## RPR V2.0.0
 * The Raspberry Pi Reflector (RPR) is a  field-ready system for tracking water levels with centimeter level accuracy
 * RPR consists of a cost-effective single-frequency Global Navigation Satellite System (GNSS) module and a navigation antenna, both connected to a Raspberry Pi microcomputer.
