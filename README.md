@@ -8,7 +8,9 @@ This project is licensed under the GNU General Public License v3.0 - see the LIC
 
 For more information about the RPR sensor, please check out our paper:
 
-Karegar, M.A., Kusche, J., Nievinski, F.G., Larson, K.M. (2022). Raspberry Pi Reflector (RPR): a Low-cost Water-level Monitoring System based on GNSS Interferometric Reflectometry, Water Resources Research (in press), https://doi.org/10.1029/2021WR031713 
+Karegar, M.A., Kusche, J., Nievinski, F.G., Larson, K.M. (2022). Raspberry Pi Reflector (RPR): a Low-cost Water-level Monitoring System based on GNSS Interferometric Reflectometry, Water Resources Research (in press), https://doi.org/10.1029/2021WR031713
+
+#### Note: [RPR version 2.0.0](https://github.com/MakanAKaregar/RPR/tree/v2.0.0) is now available. The main improvements are the switch to the Raspberry Pi Zero which uses much lower power consumption and the adoption of the [u-blox MAX-M10S](https://gnss.store/products/elt0151) receiver which is easier to configure and work with compared to the Adafruit GPS FeatherWing.
 
 <p align=center>
 <img src="https://github.com/MakanAKaregar/RPR/blob/main/Figure2.png" width="600"/>
@@ -17,9 +19,21 @@ The RPR hardware array comprising: (a) Raspberry Pi 4 Model B (b) Adafruit Feath
 
 ### Table of Contents
 
-1. [Installation guide for RPR](#RPRInst)
-2. [Photovoltaic energy system for RPR](#solarPanel) 
-3. [Installing nextCloud on RPR](#nextCloud) 
+- [Overview](#key-points)
+- [Installation guide for RPR](#1-installation-guide-for-rpr-raspberry-pi-reflector-)
+  - [1.1 Raspberry Pi OS installation](#11-raspberry-pi-operating-system-installation)
+  - [1.2 Installing Arduino IDE](#12-installing-arduino-integrated-development-environment-ide)
+  - [1.3 Assembling GPS module and connecting to RPi](#13-assembling-gps-module-mphw-and-connecting-to-the-raspberry-pi)
+  - [1.4 Downloading Arduino and Python codes](#14-downloading-arduino-and-python-codes)
+  - [1.5 Adding Adafruit board support package](#15-adding-and-installing-adafruit-board-support-package-for-arduino-ide)
+  - [1.6 Updating GPS module firmware](#16-updating-gps-modules-firmware-only-applicable-to-legacy-mtk3339-based-module)
+  - [1.7 Installing Python packages](#17-installing-some-python-packages-and-sshpass-utility)
+  - [1.8 Setting systemd service configuration](#18-setting-systemd-for-service-configuration-to-collect-data-at-startup-on-rpr)
+  - [1.9 Setting crontab jobs](#19-setting-crontab-jobs)
+- [Photovoltaic energy system for RPR](#2-photovoltaic-energy-system-for-the-rpr)
+- [Installing nextCloud on RPR](#3-installing-nextcloud-on-the-rpr)
+  - [A) Install nextCloud server](#a-install-nextcloud-server)
+  - [B) Install nextCloud desktop client](#b-install-nextcloud-desktop-client)
 
 # 1. Installation guide for RPR (Raspberry Pi Reflector) <a name="RPRInst"></a> 
 
